@@ -31,17 +31,19 @@ async function run(): Promise<void> {
           issue_number: number
         });
       } catch (e) {
+        core.setOutput('Failed to remove label');
         core.warning(`failed to remove label: ${label}: ${e}`);
         remaining.push(label);
       }
     }
 
+    core.setOutput(`${remaining.length}, `${core.getInput('fail_on_error')}`);
     if (remaining.length && core.getInput('fail_on_error') === 'true') {
-      console.log("We here");
+      core.setOutput("We here");
       core.error(new Error(`failed to remove labels: ${remaining}`);
     }
   } catch (e) {
-    console.log("Catching something");
+    core.setOutput("Catching something");
     core.error(e);
   }
 }
