@@ -40,9 +40,8 @@ async function run(): Promise<void> {
       throw new Error(`failed to remove labels: ${remaining}`);
     }
   } catch (e) {
-    core.error(e);
-
     if (core.getInput('fail_on_error') === 'true') {
+      core.error(e);
       core.setFailed(e.message);
     }
   }
