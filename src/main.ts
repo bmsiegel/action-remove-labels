@@ -36,14 +36,11 @@ async function run(): Promise<void> {
       }
     }
 
-    if (remaining.length) {
-      throw new Error(`failed to remove labels: ${remaining}`);
+    if (remaining.length && core.getInput('fail_on_error') === 'true') {
+      core.error(new Error(`failed to remove labels: ${remaining}`);
     }
   } catch (e) {
-    if (core.getInput('fail_on_error') === 'true') {
-      core.error(e);
-      core.setFailed(e.message);
-    }
+    core.error(e);
   }
 }
 
