@@ -31,19 +31,19 @@ async function run(): Promise<void> {
           issue_number: number
         });
       } catch (e) {
-        core.setOutput('Failed to remove label');
+        core.debug('Failed to remove label');
         core.warning(`failed to remove label: ${label}: ${e}`);
         remaining.push(label);
       }
     }
 
-    core.setOutput(`${remaining.length}, `${core.getInput('fail_on_error')}`);
+    core.debug(`${remaining.length}, `${core.getInput('fail_on_error')}`);
     if (remaining.length && core.getInput('fail_on_error') === 'true') {
-      core.setOutput("We here");
+      core.debug("We here");
       core.error(new Error(`failed to remove labels: ${remaining}`);
     }
   } catch (e) {
-    core.setOutput("Catching something");
+    core.debug("Catching something");
     core.error(e);
   }
 }
