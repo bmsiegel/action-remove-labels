@@ -37,9 +37,11 @@ async function run(): Promise<void> {
     }
 
     if (remaining.length && core.getInput('fail_on_error') === 'true') {
+      console.log("We here");
       core.error(new Error(`failed to remove labels: ${remaining}`);
     }
   } catch (e) {
+    console.log("Catching something");
     core.error(e);
   }
 }
