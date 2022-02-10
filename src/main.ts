@@ -22,7 +22,7 @@ async function run(): Promise<void> {
 
     const client = github.getOctokit(githubToken);
 
-    const remaining = [];
+    var remaining = [];
     for (const label of labels) {
       try {
         await client.issues.removeLabel({
@@ -39,11 +39,11 @@ async function run(): Promise<void> {
     core.debug(`${remaining.length}, `${core.getInput('fail_on_error')}`);
     if (remaining.length && core.getInput('fail_on_error') === 'true') {
       core.debug("We here");
-      core.error(new Error(`failed to remove labels: ${remaining}`);
+      core.error(new Error(`failed to remove labels aaa: ${remaining}`);
     }
-  } catch (e) {
+  } catch (f) {
     core.debug("Catching something");
-    core.error(e);
+    core.error(f);
   }
 }
 
