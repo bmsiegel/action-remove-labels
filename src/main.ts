@@ -3,6 +3,7 @@ import * as core from '@actions/core';
 
 async function run(): Promise<void> {
   try {
+    core.debug('asldkfalskjdf');
     const githubToken = core.getInput('github_token');
 
     const labels = core
@@ -31,8 +32,6 @@ async function run(): Promise<void> {
           issue_number: number
         });
       } catch (e) {
-        core.debug('Failed to remove label');
-        core.warning(`failed to remove label: ${label}: ${e}`);
         remaining.push(label);
       }
     }
