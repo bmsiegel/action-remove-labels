@@ -3,7 +3,6 @@ import * as core from '@actions/core';
 
 async function run(): Promise<void> {
   try {
-    core.debug('asldkfalskjdf');
     const githubToken = core.getInput('github_token');
 
     const labels = core
@@ -36,14 +35,14 @@ async function run(): Promise<void> {
       }
     }
 
-    core.debug(`${remaining.length}, `${core.getInput('fail_on_error')}`);
-    if (remaining.length && core.getInput('fail_on_error') === 'true') {
-      core.debug("We here");
-      core.error(new Error(`failed to remove labels aaa: ${remaining}`);
-    }
+//     core.debug(`${remaining.length}, `${core.getInput('fail_on_error')}`);
+//     if (remaining.length && core.getInput('fail_on_error') === 'true') {
+//       core.debug("We here");
+//       core.error(new Error(`failed to remove labels aaa: ${remaining}`);
+//     }
   } catch (f) {
-    core.debug("Catching something");
-    core.error(f);
+//     core.debug("Catching something");
+//     core.error(f);
   }
 }
 
